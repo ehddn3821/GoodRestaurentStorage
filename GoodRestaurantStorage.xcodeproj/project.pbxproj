@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3018A4B9157374A45F82BA67 /* Pods_GoodRestaurantStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E970D889E754FB89DB4F6B /* Pods_GoodRestaurantStorage.framework */; };
+		35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */; };
+		35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */; };
+		35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */; };
+		35EB6DE126AEDEEE00AC7BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35EB6DE026AEDEEE00AC7BE4 /* Assets.xcassets */; };
+		35EB6DE426AEDEEE00AC7BE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EB6DE226AEDEEE00AC7BE4 /* LaunchScreen.storyboard */; };
+		35EB6DEE26AEE14500AC7BE4 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */; };
+		35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DED26AEE14500AC7BE4 /* PreViews.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		35EB6DD426AEDEED00AC7BE4 /* GoodRestaurantStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodRestaurantStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		35EB6DE026AEDEEE00AC7BE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35EB6DE326AEDEEE00AC7BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		35EB6DE526AEDEEE00AC7BE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
+		35EB6DED26AEE14500AC7BE4 /* PreViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViews.swift; sourceTree = "<group>"; };
+		A76512178A96D9263AEE1720 /* Pods-GoodRestaurantStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodRestaurantStorage.release.xcconfig"; path = "Target Support Files/Pods-GoodRestaurantStorage/Pods-GoodRestaurantStorage.release.xcconfig"; sourceTree = "<group>"; };
+		B810E55F0AA64C25DC306560 /* Pods-GoodRestaurantStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodRestaurantStorage.debug.xcconfig"; path = "Target Support Files/Pods-GoodRestaurantStorage/Pods-GoodRestaurantStorage.debug.xcconfig"; sourceTree = "<group>"; };
+		D0E970D889E754FB89DB4F6B /* Pods_GoodRestaurantStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodRestaurantStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		35EB6DD126AEDEED00AC7BE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3018A4B9157374A45F82BA67 /* Pods_GoodRestaurantStorage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		35EB6DCB26AEDEED00AC7BE4 = {
+			isa = PBXGroup;
+			children = (
+				35EB6DD626AEDEED00AC7BE4 /* GoodRestaurantStorage */,
+				35EB6DD526AEDEED00AC7BE4 /* Products */,
+				482A59E78B1BA7B18E0DDC78 /* Pods */,
+				B05FC40DCD1C05F9A323C448 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		35EB6DD526AEDEED00AC7BE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35EB6DD426AEDEED00AC7BE4 /* GoodRestaurantStorage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		35EB6DD626AEDEED00AC7BE4 /* GoodRestaurantStorage */ = {
+			isa = PBXGroup;
+			children = (
+				35EB6DEB26AEE12E00AC7BE4 /* Utils */,
+				35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */,
+				35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */,
+				35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */,
+				35EB6DE026AEDEEE00AC7BE4 /* Assets.xcassets */,
+				35EB6DE226AEDEEE00AC7BE4 /* LaunchScreen.storyboard */,
+				35EB6DE526AEDEEE00AC7BE4 /* Info.plist */,
+			);
+			path = GoodRestaurantStorage;
+			sourceTree = "<group>";
+		};
+		35EB6DEB26AEE12E00AC7BE4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */,
+				35EB6DED26AEE14500AC7BE4 /* PreViews.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		482A59E78B1BA7B18E0DDC78 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B810E55F0AA64C25DC306560 /* Pods-GoodRestaurantStorage.debug.xcconfig */,
+				A76512178A96D9263AEE1720 /* Pods-GoodRestaurantStorage.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B05FC40DCD1C05F9A323C448 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0E970D889E754FB89DB4F6B /* Pods_GoodRestaurantStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		35EB6DD326AEDEED00AC7BE4 /* GoodRestaurantStorage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35EB6DE826AEDEEE00AC7BE4 /* Build configuration list for PBXNativeTarget "GoodRestaurantStorage" */;
+			buildPhases = (
+				B98674872DBDB7CFF9A188DB /* [CP] Check Pods Manifest.lock */,
+				35EB6DD026AEDEED00AC7BE4 /* Sources */,
+				35EB6DD126AEDEED00AC7BE4 /* Frameworks */,
+				35EB6DD226AEDEED00AC7BE4 /* Resources */,
+				4920C28BEC82E4F2E58DD087 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoodRestaurantStorage;
+			productName = GoodRestaurantStorage;
+			productReference = 35EB6DD426AEDEED00AC7BE4 /* GoodRestaurantStorage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		35EB6DCC26AEDEED00AC7BE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					35EB6DD326AEDEED00AC7BE4 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 35EB6DCF26AEDEED00AC7BE4 /* Build configuration list for PBXProject "GoodRestaurantStorage" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 35EB6DCB26AEDEED00AC7BE4;
+			productRefGroup = 35EB6DD526AEDEED00AC7BE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				35EB6DD326AEDEED00AC7BE4 /* GoodRestaurantStorage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		35EB6DD226AEDEED00AC7BE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35EB6DE426AEDEEE00AC7BE4 /* LaunchScreen.storyboard in Resources */,
+				35EB6DE126AEDEEE00AC7BE4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4920C28BEC82E4F2E58DD087 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodRestaurantStorage/Pods-GoodRestaurantStorage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GoodRestaurantStorage/Pods-GoodRestaurantStorage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GoodRestaurantStorage/Pods-GoodRestaurantStorage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B98674872DBDB7CFF9A188DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoodRestaurantStorage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		35EB6DD026AEDEED00AC7BE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */,
+				35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */,
+				35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */,
+				35EB6DEE26AEE14500AC7BE4 /* OSLog.swift in Sources */,
+				35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		35EB6DE226AEDEEE00AC7BE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35EB6DE326AEDEEE00AC7BE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		35EB6DE626AEDEEE00AC7BE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		35EB6DE726AEDEEE00AC7BE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		35EB6DE926AEDEEE00AC7BE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B810E55F0AA64C25DC306560 /* Pods-GoodRestaurantStorage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT5ZADXQMP;
+				INFOPLIST_FILE = GoodRestaurantStorage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwkang.GoodRestaurantStorage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		35EB6DEA26AEDEEE00AC7BE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A76512178A96D9263AEE1720 /* Pods-GoodRestaurantStorage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LT5ZADXQMP;
+				INFOPLIST_FILE = GoodRestaurantStorage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dwkang.GoodRestaurantStorage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		35EB6DCF26AEDEED00AC7BE4 /* Build configuration list for PBXProject "GoodRestaurantStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35EB6DE626AEDEEE00AC7BE4 /* Debug */,
+				35EB6DE726AEDEEE00AC7BE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35EB6DE826AEDEEE00AC7BE4 /* Build configuration list for PBXNativeTarget "GoodRestaurantStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35EB6DE926AEDEEE00AC7BE4 /* Debug */,
+				35EB6DEA26AEDEEE00AC7BE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 35EB6DCC26AEDEED00AC7BE4 /* Project object */;
+}
