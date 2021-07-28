@@ -2,7 +2,6 @@
 #if DEBUG
 
 import SwiftUI
-import os.log
 
 
 /*
@@ -25,9 +24,7 @@ extension UIViewController {
             return controller
         }
         
-        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-            os_log("updateView", log: OSLog.dwLog, type: .info)
-        }
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) { }
     }
 
     func toPreview() -> some View {
@@ -62,9 +59,7 @@ extension UIView {
             return view
         }
 
-        func updateUIView(_ uiViewController: UIView, context: Context) {
-            os_log("updateView", log: OSLog.dwLog, type: .info)
-        }
+        func updateUIView(_ uiViewController: UIView, context: Context) { }
     }
 
     func toPreview() -> some View {
@@ -97,9 +92,7 @@ extension UIStackView {
             return view
         }
 
-        func updateUIView(_ uiViewController: UIStackView, context: Context) {
-            os_log("updateView", log: OSLog.dwLog, type: .info)
-        }
+        func updateUIView(_ uiViewController: UIStackView, context: Context) { }
     }
 
     func toPreview() -> some View {

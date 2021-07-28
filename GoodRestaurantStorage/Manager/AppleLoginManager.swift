@@ -9,7 +9,6 @@ import Foundation
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
-import os.log
 
 @available(iOS 13.0, *)
 class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
@@ -102,18 +101,17 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
                     // Error. If error.code == .MissingOrInvalidNonce, make sure
                     // you're sending the SHA256-hashed nonce as a hex string with
                     // your request to Apple.
-                    print(error!.localizedDescription)
-                    os_log("애플 로그인 실패 %{public}@", log: OSLog.dwLog, type: .error, error!.localizedDescription)
+                    Log.error("애플 로그인 실패", error!.localizedDescription)
                     return
                 }
                 // User is signed in to Firebase with Apple.
-                print("애플 로그인 성공")
+                Log.info("애플 로그인 성공", authResult!)
             }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
-        print("Sign in with Apple errored: \(error)")
+        Log.error("Sign in with Apple errored", error)
     }
 }

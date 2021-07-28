@@ -31,6 +31,7 @@
 		35EB6DE526AEDEEE00AC7BE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		35EB6DED26AEE14500AC7BE4 /* PreViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViews.swift; sourceTree = "<group>"; };
+		35EB6DF426B1599F00AC7BE4 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DB3A7B226B114FF0083A9A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -74,10 +75,10 @@
 		35EB6DD626AEDEED00AC7BE4 /* GoodRestaurantStorage */ = {
 			isa = PBXGroup;
 			children = (
-				3DB3A7BA26B139FB0083A9A0 /* Manager */,
 				3DB3A7B926B128B10083A9A0 /* GoodRestaurantStorage.entitlements */,
 				3DB3A7B726B124DA0083A9A0 /* App */,
 				3DB3A7B826B125020083A9A0 /* View */,
+				3DB3A7BA26B139FB0083A9A0 /* Manager */,
 				35EB6DEB26AEE12E00AC7BE4 /* Util */,
 				3DB3A7B626B1249F0083A9A0 /* Supporting File */,
 			);
@@ -143,6 +144,7 @@
 		B05FC40DCD1C05F9A323C448 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35EB6DF426B1599F00AC7BE4 /* OSLog.framework */,
 				D0E970D889E754FB89DB4F6B /* Pods_GoodRestaurantStorage.framework */,
 			);
 			name = Frameworks;
