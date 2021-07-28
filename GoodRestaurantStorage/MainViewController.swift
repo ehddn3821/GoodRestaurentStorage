@@ -11,7 +11,6 @@ import NMapsMap
 class MainViewController: UIViewController {
     
     let mapView = NMFMapView()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,4 +49,3 @@ class MainViewController: UIViewController {
         infoWindow.open(with: marker)
     }
 }
-
