@@ -106,6 +106,8 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
                 }
                 // User is signed in to Firebase with Apple.
                 Log.info("애플 로그인 성공", authResult!)
+                let vc = UIApplication.shared.windows.first?.visibleViewController
+                vc?.navigationController?.popViewController(animated: true)
             }
         }
     }

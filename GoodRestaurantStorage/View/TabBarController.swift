@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TabBarController: UITabBarController {
     
@@ -20,20 +21,22 @@ class TabBarController: UITabBarController {
         return vc
     }()
     
-    // 로그인 화면
-    var profileTabBar: LoginViewController = {
-        let vc = LoginViewController()
+    // 프로필 화면
+    var profileTabBar: UINavigationController = {
+        let vc = ProfileViewController()
         let defaultImg = UIImage(systemName: "person.circle")
         let selectedImg = UIImage(systemName: "person.circle.fill")
         let tabBarItem = UITabBarItem(title: nil, image: defaultImg, selectedImage: selectedImg)
         vc.tabBarItem = tabBarItem
         tabBarItem.tag = 1
-        return vc
+        let nc = UINavigationController(rootViewController: vc)
+        return nc
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "회사 주변 맛집"
         self.tabBar.tintColor = .white
         self.tabBar.barTintColor = .black
     }

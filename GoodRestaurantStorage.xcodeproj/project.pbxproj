@@ -15,6 +15,8 @@
 		35EB6DE426AEDEEE00AC7BE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35EB6DE226AEDEEE00AC7BE4 /* LaunchScreen.storyboard */; };
 		35EB6DEE26AEE14500AC7BE4 /* OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */; };
 		35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DED26AEE14500AC7BE4 /* PreViews.swift */; };
+		35EB6E1A26B183B200AC7BE4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */; };
+		35EB6E1C26B19B2000AC7BE4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */; };
 		3DB3A7B126B0F8860083A9A0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */; };
 		3DB3A7B326B114FF0083A9A0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7B226B114FF0083A9A0 /* LoginViewController.swift */; };
 		3DB3A7B526B124860083A9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */; };
@@ -32,6 +34,8 @@
 		35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLog.swift; sourceTree = "<group>"; };
 		35EB6DED26AEE14500AC7BE4 /* PreViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreViews.swift; sourceTree = "<group>"; };
 		35EB6DF426B1599F00AC7BE4 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
+		35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DB3A7B226B114FF0083A9A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			children = (
 				35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */,
 				35EB6DED26AEE14500AC7BE4 /* PreViews.swift */,
+				35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */,
 				35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */,
 				3DB3A7B226B114FF0083A9A0 /* LoginViewController.swift */,
+				35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,7 +275,9 @@
 				35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */,
 				35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */,
 				35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */,
+				35EB6E1C26B19B2000AC7BE4 /* Extensions.swift in Sources */,
 				3DB3A7B126B0F8860083A9A0 /* TabBarController.swift in Sources */,
+				35EB6E1A26B183B200AC7BE4 /* ProfileViewController.swift in Sources */,
 				35EB6DEE26AEE14500AC7BE4 /* OSLog.swift in Sources */,
 				35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */,
 			);

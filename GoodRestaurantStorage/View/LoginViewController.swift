@@ -8,8 +8,6 @@
 import UIKit
 import SnapKit
 import AuthenticationServices
-import CryptoKit
-import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -32,7 +30,13 @@ class LoginViewController: UIViewController {
     private func setUI() {
         
         self.view.backgroundColor = .white
+        self.title = "로그인"
+        self.navigationItem.setHidesBackButton(true, animated: true)
         
+        // 네비게이션바 높이 가져오기
+        guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+        let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+
         // 이메일
         self.view.addSubview(emailTextField)
         emailTextField.autocapitalizationType = .none
@@ -40,7 +44,7 @@ class LoginViewController: UIViewController {
         emailTextField.borderStyle = .roundedRect
         emailTextField.placeholder = "이메일을 입력해주세요."
         emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(80)
+            make.top.equalTo(statusBarHeight+100)
             make.leading.equalTo(30)
             make.trailing.equalTo(-30)
         }
@@ -61,6 +65,7 @@ class LoginViewController: UIViewController {
             make.top.equalTo(pwTextField.snp.bottom).offset(50)
             make.leading.equalTo(emailTextField)
             make.trailing.equalTo(emailTextField)
+            make.height.equalTo(50)
         }
     }
 }
