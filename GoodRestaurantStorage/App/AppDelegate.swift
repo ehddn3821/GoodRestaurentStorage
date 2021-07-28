@@ -7,6 +7,8 @@
 
 import UIKit
 import NMapsMap
+import Firebase
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         NMFAuthManager.shared().clientId = "4ebj4blhcr"
+        FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
         
         return true
     }

@@ -10,7 +10,7 @@ import UIKit
 class TabBarController: UITabBarController {
     
     // 메인 지도 화면
-    lazy var mainTabBar: MainViewController = {
+    var mainTabBar: MainViewController = {
         let vc = MainViewController()
         let defaultImg = UIImage(systemName: "house")
         let selectedImg = UIImage(systemName: "house.fill")
@@ -21,7 +21,7 @@ class TabBarController: UITabBarController {
     }()
     
     // 로그인 화면
-    lazy var profileTabBar: LoginViewController = {
+    var profileTabBar: LoginViewController = {
         let vc = LoginViewController()
         let defaultImg = UIImage(systemName: "person.circle")
         let selectedImg = UIImage(systemName: "person.circle.fill")
@@ -33,13 +33,14 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tabBar.tintColor = .white
         self.tabBar.barTintColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.viewControllers = [mainTabBar, profileTabBar]
     }
 }

@@ -11,4 +11,8 @@ target 'GoodRestaurantStorage' do
   pod 'RxCocoa', '6.2.0'
 	pod 'ReactorKit'
 	pod 'NMapsMap'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  pod 'IQKeyboardManagerSwift'
 end
