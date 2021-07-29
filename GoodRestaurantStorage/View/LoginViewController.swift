@@ -11,8 +11,6 @@ import AuthenticationServices
 
 class LoginViewController: UIViewController {
     
-    var emailTextField = UITextField()
-    var pwTextField = UITextField()
     let appleLoginBtn = ASAuthorizationAppleIDButton(type: .continue, style: .black)
     
     override func viewDidLoad() {
@@ -23,6 +21,12 @@ class LoginViewController: UIViewController {
         appleLoginBtn.addTarget(self, action: #selector(appleLogin), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    // 로그인 버튼 탭
     @objc func appleLogin(_ sender: ASAuthorizationAppleIDButton) {
         AppleLoginManager.shared.startSignInWithAppleFlow()
     }
@@ -30,42 +34,20 @@ class LoginViewController: UIViewController {
     private func setUI() {
         
         self.view.backgroundColor = .white
-        self.title = "로그인"
         self.navigationItem.setHidesBackButton(true, animated: true)
         
         // 네비게이션바 높이 가져오기
-        guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
-        let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-
-        // 이메일
-        self.view.addSubview(emailTextField)
-        emailTextField.autocapitalizationType = .none
-        emailTextField.keyboardType = .emailAddress
-        emailTextField.borderStyle = .roundedRect
-        emailTextField.placeholder = "이메일을 입력해주세요."
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(statusBarHeight+100)
-            make.leading.equalTo(30)
-            make.trailing.equalTo(-30)
-        }
-        
-        // 비밀번호
-        self.view.addSubview(pwTextField)
-        pwTextField.borderStyle = .roundedRect
-        pwTextField.placeholder = "비밀번호를 입력해주세요."
-        pwTextField.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(30)
-            make.leading.equalTo(emailTextField)
-            make.trailing.equalTo(emailTextField)
-        }
+//        guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+//        let statusBarHeight = window.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         
         // 애플 로그인 버튼
         self.view.addSubview(appleLoginBtn)
         appleLoginBtn.snp.makeConstraints { make in
-            make.top.equalTo(pwTextField.snp.bottom).offset(50)
-            make.leading.equalTo(emailTextField)
-            make.trailing.equalTo(emailTextField)
-            make.height.equalTo(50)
+//            make.top.equalTo(pwTextField.snp.bottom).offset(50)
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(30)
+            make.trailing.equalTo(-30)
+            make.height.equalTo(35)
         }
     }
 }

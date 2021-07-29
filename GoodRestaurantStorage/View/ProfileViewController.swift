@@ -7,9 +7,10 @@
 
 import UIKit
 import SnapKit
-import Firebase
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
+    
     var signoutBtn = UIButton()
     
     override func viewDidLoad() {
@@ -17,40 +18,66 @@ class ProfileViewController: UIViewController {
         
         setUI()
         signoutBtn.addTarget(self, action: #selector(signout), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         
         if Auth.auth().currentUser == nil {
             self.navigationController?.pushViewController(LoginViewController(), animated: true)
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
+    // 로그아웃
     @objc func signout() {
-        do {
-            try Auth.auth().signOut()
-            Log.info("로그아웃 성공")
+        let alert = UIAlertController(title: "정말 로그아웃 하시겠습니까?", message: "", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            try! Auth.auth().signOut()
             self.navigationController?.pushViewController(LoginViewController(), animated: true)
-        } catch let signOutError as NSError {
-            Log.error("Error signing out", signOutError)
+            Log.info("로그아웃")
         }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
     private func setUI() {
         
-        self.title = "프로필"
         self.view.backgroundColor = .white
         
         self.view.addSubview(signoutBtn)
-        signoutBtn.setTitle("Sign Out", for: .normal)
-        signoutBtn.setTitleColor(.white, for: .normal)
-        signoutBtn.backgroundColor = .black
+        signoutBtn.setTitle("Sign Out !", for: .normal)
+        signoutBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        signoutBtn.setTitleColor(.red, for: .normal)
+        signoutBtn.backgroundColor = .white
+        signoutBtn.layer.borderWidth = 2.0
+        signoutBtn.layer.borderColor = UIColor.red.cgColor
+        signoutBtn.layer.cornerRadius = 8.0
         signoutBtn.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalTo(200)
-            make.height.equalTo(80)
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(30)
+            make.trailing.equalTo(-30)
+            make.height.equalTo(35)
         }
     }
 }
+
+
+#if DEBUG
+import SwiftUI
+
+@available(iOS 13, *)
+struct PreviewProfileViewController: PreviewProvider {
+    
+    static var previews: some View {
+        // view controller using programmatic UI
+        ProfileViewController().toPreview()
+    }
+}
+#endif

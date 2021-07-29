@@ -96,6 +96,7 @@ PODS:
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.6.1)
   - IQKeyboardManagerSwift (6.5.6)
+  - JGProgressHUD (2.2)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -120,6 +121,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - GoogleSignIn
   - IQKeyboardManagerSwift
+  - JGProgressHUD
   - NMapsMap
   - ReactorKit
   - RxCocoa (= 6.2.0)
@@ -142,6 +144,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - JGProgressHUD
     - nanopb
     - NMapsMap
     - PromisesObjC
@@ -167,6 +170,7 @@ SPEC CHECKSUMS:
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   NMapsMap: 88b5bdac7087bfa99ab058ff5cdd95fb766e0e95
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
@@ -177,6 +181,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: b1d6b7fb699dc3bf8e67847a6576d6ae04790455
+PODFILE CHECKSUM: 03f1d152d3abf7bf8c2ad47dd09ae5bc796fc56e
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

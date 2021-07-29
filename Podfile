@@ -6,13 +6,15 @@ target 'GoodRestaurantStorage' do
   use_frameworks!
 
   # Pods for GoodRestaurantStorage
-	pod 'SnapKit', '~> 5.0.0'
-	pod 'RxSwift', '6.2.0'
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
-	pod 'ReactorKit'
-	pod 'NMapsMap'
+  pod 'ReactorKit'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
   pod 'GoogleSignIn'
   pod 'IQKeyboardManagerSwift'
+  pod 'JGProgressHUD'
 end

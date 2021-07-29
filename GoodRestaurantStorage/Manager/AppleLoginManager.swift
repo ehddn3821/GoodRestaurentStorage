@@ -9,6 +9,7 @@ import Foundation
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuth
+import JGProgressHUD
 
 @available(iOS 13.0, *)
 class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
@@ -79,6 +80,13 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
     
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        let vc = UIApplication.shared.windows.first?.visibleViewController
+        let hud = JGProgressHUD()
+        hud.textLabel.text = "Loading"
+        hud.tintColor = .black
+        hud.show(in: (vc?.view)!, animated: true)
+        
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
                 fatalError("Invalid state: A login callback was received, but no login request was sent.")
@@ -105,15 +113,18 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
                     return
                 }
                 // User is signed in to Firebase with Apple.
-                Log.info("애플 로그인 성공", authResult!)
-                let vc = UIApplication.shared.windows.first?.visibleViewController
-                vc?.navigationController?.popViewController(animated: true)
+                Log.info("애플 로그인 성공")
+                
+                hud.dismiss()
+
+                vc?.navigationController?.pushViewController(ProfileViewController(), animated: true)
             }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
+//        self.hud.dismiss()
         Log.error("Sign in with Apple errored", error)
     }
 }

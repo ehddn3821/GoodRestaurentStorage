@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Firebase
 
 class TabBarController: UITabBarController {
     
@@ -23,6 +22,7 @@ class TabBarController: UITabBarController {
     
     // 프로필 화면
     var profileTabBar: UINavigationController = {
+        
         let vc = ProfileViewController()
         let defaultImg = UIImage(systemName: "person.circle")
         let selectedImg = UIImage(systemName: "person.circle.fill")
