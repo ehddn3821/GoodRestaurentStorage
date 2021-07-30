@@ -7,9 +7,9 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class TabBarController: CustomTabBarController {
     
-    // 메인 지도 화면
+    // 메인 화면
     var mainTabBar: MainViewController = {
         let vc = MainViewController()
         let defaultImg = UIImage(systemName: "house")
@@ -22,8 +22,7 @@ class TabBarController: UITabBarController {
     
     // 프로필 화면
     var profileTabBar: UINavigationController = {
-        
-        let vc = ProfileViewController()
+        var vc = ProfileViewController()
         let defaultImg = UIImage(systemName: "person.circle")
         let selectedImg = UIImage(systemName: "person.circle.fill")
         let tabBarItem = UITabBarItem(title: nil, image: defaultImg, selectedImage: selectedImg)
@@ -36,14 +35,13 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "회사 주변 맛집"
-        self.tabBar.tintColor = .white
-        self.tabBar.barTintColor = .black
+        self.tabBar.tintColor = .systemIndigo
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.viewControllers = [mainTabBar, profileTabBar]
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.viewControllers = [self.mainTabBar, self.profileTabBar]
     }
 }

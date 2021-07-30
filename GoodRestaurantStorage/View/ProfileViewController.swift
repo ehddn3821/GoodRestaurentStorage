@@ -8,15 +8,19 @@
 import UIKit
 import SnapKit
 import FirebaseAuth
+import AuthenticationServices
 
 class ProfileViewController: UIViewController {
     
+    let appleLoginBtn = ASAuthorizationAppleIDButton(type: .continue, style: .black)
     var signoutBtn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUI()
+        
+        appleLoginBtn.addTarget(self, action: #selector(appleLogin), for: .touchUpInside)
         signoutBtn.addTarget(self, action: #selector(signout), for: .touchUpInside)
     }
     
@@ -24,9 +28,18 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
-        if Auth.auth().currentUser == nil {
-            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        if UserDefaults.standard.bool(forKey: "user") {
+            signoutBtn.isHidden = false
+            appleLoginBtn.isHidden = true
+        } else {
+            signoutBtn.isHidden = true
+            appleLoginBtn.isHidden = false
         }
+    }
+    
+    // 로그인
+    @objc func appleLogin(_ sender: ASAuthorizationAppleIDButton) {
+        AppleLoginManager.shared.startSignInWithAppleFlow()
     }
     
     // 로그아웃
@@ -35,8 +48,9 @@ class ProfileViewController: UIViewController {
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             try! Auth.auth().signOut()
-            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+            UserDefaults.standard.set(false, forKey: "user")
             Log.info("로그아웃")
+            self.viewWillAppear(true)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -51,6 +65,16 @@ class ProfileViewController: UIViewController {
         
         self.view.backgroundColor = .white
         
+        // 애플 로그인 버튼
+        self.view.addSubview(appleLoginBtn)
+        appleLoginBtn.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(30)
+            make.trailing.equalTo(-30)
+            make.height.equalTo(35)
+        }
+        
+        // 로그아웃 버튼
         self.view.addSubview(signoutBtn)
         signoutBtn.setTitle("Sign Out !", for: .normal)
         signoutBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -60,9 +84,9 @@ class ProfileViewController: UIViewController {
         signoutBtn.layer.borderColor = UIColor.red.cgColor
         signoutBtn.layer.cornerRadius = 8.0
         signoutBtn.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
             make.leading.equalTo(30)
             make.trailing.equalTo(-30)
+            make.bottom.equalTo(-100)
             make.height.equalTo(35)
         }
     }

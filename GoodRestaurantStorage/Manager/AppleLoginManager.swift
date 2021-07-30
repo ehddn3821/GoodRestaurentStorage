@@ -113,18 +113,17 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
                     return
                 }
                 // User is signed in to Firebase with Apple.
-                Log.info("애플 로그인 성공")
                 
+                Log.info("애플 로그인 성공")
+                UserDefaults.standard.set(true, forKey: "user")
+                vc?.viewWillAppear(true)
                 hud.dismiss()
-
-                vc?.navigationController?.pushViewController(ProfileViewController(), animated: true)
             }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         // Handle error.
-//        self.hud.dismiss()
         Log.error("Sign in with Apple errored", error)
     }
 }
