@@ -12,9 +12,9 @@ import FirebaseAuth
 import JGProgressHUD
 
 @available(iOS 13.0, *)
-class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
-    static let shared = AppleLoginManager.init()
+    static let shared = AppleSignInManager.init()
     
     fileprivate var currentNonce: String?
     
@@ -116,8 +116,8 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
                 
                 Log.info("애플 로그인 성공")
                 UserDefaults.standard.set(true, forKey: "user")
-                topVC?.viewWillAppear(true)
                 hud.dismiss()
+                topVC?.viewWillAppear(true)
             }
         }
     }

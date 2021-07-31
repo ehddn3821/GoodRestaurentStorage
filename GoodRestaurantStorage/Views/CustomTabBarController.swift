@@ -10,7 +10,6 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
     
-    // 메인 화면
     var mainTabBar: MainViewController = {
         let vc = MainViewController()
         let defaultImg = UIImage(systemName: "house")
@@ -21,7 +20,6 @@ class CustomTabBarController: UITabBarController {
         return vc
     }()
     
-    // 프로필 화면
     var profileTabBar: UINavigationController = {
         var vc = ProfileViewController()
         let defaultImg = UIImage(systemName: "person.circle")
@@ -37,7 +35,7 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         
         setupTabBarShadow(tabBar)
-        self.tabBar.tintColor = .systemIndigo
+        self.tabBar.tintColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {

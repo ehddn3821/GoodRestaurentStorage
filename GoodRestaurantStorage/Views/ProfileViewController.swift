@@ -8,7 +8,6 @@
 import UIKit
 import SnapKit
 import FirebaseAuth
-import AuthenticationServices
 import RxSwift
 import RxCocoa
 
@@ -17,7 +16,38 @@ class ProfileViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     //MARK: - UI Property
-    private let appleLoginBtn = ASAuthorizationAppleIDButton(type: .signIn, style: .black)
+    private let snsSignInLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "SNS 계정을 사용하여 로그인"
+        lb.font = UIFont.boldSystemFont(ofSize: 18)
+        return lb
+    }()
+    
+    lazy var snsSignInStackView: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [appleSignInBtn, googleSignInBtn])
+        sv.axis = .horizontal
+        sv.spacing = 20
+        sv.distribution = .equalSpacing
+        return sv
+    }()
+    
+    private let appleSignInBtn: UIButton = {
+        let btn = UIButton()
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
+        btn.setImage(UIImage(systemName: "applelogo", withConfiguration: largeConfig), for: .normal)
+        btn.tintColor = .white
+        btn.backgroundColor = .black
+        return btn
+    }()
+    
+    private let googleSignInBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(named: "google"), for: .normal)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 13)
+        btn.layer.borderWidth = 1.5
+        btn.layer.borderColor = UIColor.black.cgColor
+        return btn
+    }()
     
     private let signOutBtn: UIButton = {
         let btn = UIButton()
@@ -35,6 +65,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        buttonActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,44 +74,75 @@ class ProfileViewController: UIViewController {
         
         if UserDefaults.standard.bool(forKey: "user") {
             signOutBtn.isHidden = false
-            appleLoginBtn.isHidden = true
+            snsSignInLabel.isHidden = true
+            snsSignInStackView.isHidden = true
         } else {
             signOutBtn.isHidden = true
-            appleLoginBtn.isHidden = false
+            snsSignInLabel.isHidden = false
+            snsSignInStackView.isHidden = false
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        appleSignInBtn.layer.cornerRadius = appleSignInBtn.frame.width / 2
+        googleSignInBtn.layer.cornerRadius = appleSignInBtn.frame.width / 2
     }
     
     
     //MARK: - setup
     private func setup() {
         
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
         
-        
-        // 애플 로그인 버튼
-        self.view.addSubview(appleLoginBtn)
-        appleLoginBtn.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalTo(20)
-            $0.trailing.equalTo(-20)
-            $0.height.equalTo(35)
+        // SNS stackView
+        view.addSubview(snsSignInStackView)
+        snsSignInStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
         
-        appleLoginBtn.rx.tap
-            .bind{
-                AppleLoginManager.shared.startSignInWithAppleFlow()
-            }.disposed(by: disposeBag)
+        // Apple button
+        appleSignInBtn.snp.makeConstraints {
+            $0.width.height.equalTo(50)
+        }
         
+        // Google button
+        googleSignInBtn.snp.makeConstraints {
+            $0.width.height.equalTo(appleSignInBtn)
+        }
         
-        // 로그아웃 버튼
-        self.view.addSubview(signOutBtn)
+        // SNS label
+        view.addSubview(snsSignInLabel)
+        snsSignInLabel.snp.makeConstraints {
+            $0.bottom.equalTo(snsSignInStackView.snp.top).offset(-20)
+            $0.centerX.equalToSuperview()
+        }
+        
+        // Sign out button
+        view.addSubview(signOutBtn)
         signOutBtn.snp.makeConstraints {
             $0.leading.equalTo(20)
             $0.trailing.equalTo(-20)
             $0.bottom.equalTo(-tabBarHeight(view, tabBarController: tabBarController!) - 20)
             $0.height.equalTo(35)
         }
+    }
+    
+    //MARK: - Button Actions
+    private func buttonActions() {
         
+        // Apple sign in
+        appleSignInBtn.rx.tap
+            .bind {
+                AppleSignInManager.shared.startSignInWithAppleFlow()
+            }.disposed(by: disposeBag)
+        
+        // Google sign in
+        googleSignInBtn.rx.tap
+            .bind {
+                GoogleSignInManager.shared.startSignInWithGoogleFlow()
+            }.disposed(by: disposeBag)
+        
+        // Sign out
         signOutBtn.rx.tap
             .bind {
                 let alert = UIAlertController(title: "정말 로그아웃 하시겠습니까?", message: "", preferredStyle: .alert)

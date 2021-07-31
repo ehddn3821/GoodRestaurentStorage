@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AuthenticationServices
+import GoogleSignIn
 
 // 최상위 뷰컨트롤러 가져오기
 //  UIApplication.shared.windows.first?.visibleViewController
@@ -68,6 +69,14 @@ extension UITabBar {
 // 애플 로그인 버튼 rx.tap 추가
 @available(iOS 13.0, *)
 extension Reactive where Base: ASAuthorizationAppleIDButton {
+    public var tap: ControlEvent<Void> {
+        controlEvent(.touchUpInside)
+    }
+}
+
+// 구글 로그인 버튼 rx.tap 추가
+@available(iOS 13.0, *)
+extension Reactive where Base: GIDSignInButton {
     public var tap: ControlEvent<Void> {
         controlEvent(.touchUpInside)
     }
