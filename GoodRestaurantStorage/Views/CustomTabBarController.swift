@@ -1,13 +1,14 @@
 //
-//  TabBarController.swift
-//  GoodRestaurantStorage
+//  CustumTabBarController.swift
 //
-//  Created by 앱지 Appg on 2021/07/28.
+//  TabBar 위에 그림자 생성
+//
+//  Created by 앱지 Appg on 2021/07/30.
 //
 
 import UIKit
 
-class TabBarController: CustomTabBarController {
+class CustomTabBarController: UITabBarController {
     
     // 메인 화면
     var mainTabBar: MainViewController = {
@@ -35,6 +36,7 @@ class TabBarController: CustomTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTabBarShadow(tabBar)
         self.tabBar.tintColor = .systemIndigo
     }
     

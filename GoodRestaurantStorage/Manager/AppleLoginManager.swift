@@ -81,11 +81,11 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         
-        let vc = UIApplication.shared.windows.first?.visibleViewController
+        let topVC = UIApplication.shared.windows.first?.visibleViewController
         let hud = JGProgressHUD()
         hud.textLabel.text = "Loading"
         hud.tintColor = .black
-        hud.show(in: (vc?.view)!, animated: true)
+        hud.show(in: (topVC?.view)!, animated: true)
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -116,7 +116,7 @@ class AppleLoginManager: NSObject, ASAuthorizationControllerDelegate, ASAuthoriz
                 
                 Log.info("애플 로그인 성공")
                 UserDefaults.standard.set(true, forKey: "user")
-                vc?.viewWillAppear(true)
+                topVC?.viewWillAppear(true)
                 hud.dismiss()
             }
         }

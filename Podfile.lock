@@ -14,6 +14,12 @@ PODS:
     - FirebaseAnalytics (~> 8.4.0)
   - Firebase/CoreOnly (8.4.0):
     - FirebaseCore (= 8.4.0)
+  - Firebase/Database (8.4.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 8.4.0)
+  - Firebase/Storage (8.4.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 8.4.0)
   - FirebaseAnalytics (8.4.0):
     - FirebaseAnalytics/AdIdSupport (= 8.4.0)
     - FirebaseCore (~> 8.0)
@@ -46,11 +52,17 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/Logger (~> 7.4)
     - nanopb (~> 2.30908.0)
+  - FirebaseDatabase (8.4.0):
+    - FirebaseCore (~> 8.0)
+    - leveldb-library (~> 1.22)
   - FirebaseInstallations (8.4.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseStorage (8.4.0):
+    - FirebaseCore (~> 8.0)
+    - GTMSessionFetcher/Core (~> 1.5)
   - GoogleAppMeasurement (8.4.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.4.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -97,12 +109,12 @@ PODS:
   - GTMSessionFetcher/Core (1.6.1)
   - IQKeyboardManagerSwift (6.5.6)
   - JGProgressHUD (2.2)
+  - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - NMapsMap (3.13.0)
   - PromisesObjC (2.0.0)
   - ReactorKit (3.0.0):
     - RxSwift (~> 6.0)
@@ -119,10 +131,11 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Database
+  - Firebase/Storage
   - GoogleSignIn
   - IQKeyboardManagerSwift
   - JGProgressHUD
-  - NMapsMap
   - ReactorKit
   - RxCocoa (= 6.2.0)
   - RxSwift (= 6.2.0)
@@ -136,7 +149,9 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseDatabase
     - FirebaseInstallations
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleSignIn
@@ -145,8 +160,8 @@ SPEC REPOS:
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - JGProgressHUD
+    - leveldb-library
     - nanopb
-    - NMapsMap
     - PromisesObjC
     - ReactorKit
     - RxCocoa
@@ -162,7 +177,9 @@ SPEC CHECKSUMS:
   FirebaseAuth: 8ef169751d795f20921d425f7b0131cc1c70935c
   FirebaseCore: 31f389c37ac1ea52454a53d3081f2d7019485a4a
   FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
+  FirebaseDatabase: 38f21731dea277e454060d0d39c1bf2aaa12bbb9
   FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
+  FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleSignIn: 1b0c4ec33a6fe282f4fa35d8ac64263230ddaf36
@@ -171,8 +188,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
+  leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  NMapsMap: 88b5bdac7087bfa99ab058ff5cdd95fb766e0e95
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   ReactorKit: 5348c9881dcb546605b451e32759dccc9937d36e
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
@@ -181,6 +198,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 03f1d152d3abf7bf8c2ad47dd09ae5bc796fc56e
+PODFILE CHECKSUM: 550f1055b31d090da24464fa124ba37c9f23ac08
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.0

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3018A4B9157374A45F82BA67 /* Pods_GoodRestaurantStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E970D889E754FB89DB4F6B /* Pods_GoodRestaurantStorage.framework */; };
+		3543152126B41CBC00E5E430 /* CommonConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3543152026B41CBC00E5E430 /* CommonConst.swift */; };
 		35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */; };
 		35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */; };
 		35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */; };
@@ -17,13 +18,13 @@
 		35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DED26AEE14500AC7BE4 /* PreViews.swift */; };
 		35EB6E1A26B183B200AC7BE4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */; };
 		35EB6E1C26B19B2000AC7BE4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */; };
-		3DB3A7B126B0F8860083A9A0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */; };
 		3DB3A7B526B124860083A9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */; };
 		3DB3A7BC26B13A170083A9A0 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7BB26B13A170083A9A0 /* AppleLoginManager.swift */; };
 		3DB3A7C026B39D1B0083A9A0 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3543152026B41CBC00E5E430 /* CommonConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConst.swift; sourceTree = "<group>"; };
 		35EB6DD426AEDEED00AC7BE4 /* GoodRestaurantStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodRestaurantStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		35EB6DF426B1599F00AC7BE4 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DB3A7B926B128B10083A9A0 /* GoodRestaurantStorage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodRestaurantStorage.entitlements; sourceTree = "<group>"; };
 		3DB3A7BB26B13A170083A9A0 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 			children = (
 				3DB3A7B926B128B10083A9A0 /* GoodRestaurantStorage.entitlements */,
 				3DB3A7B726B124DA0083A9A0 /* App */,
-				3DB3A7B826B125020083A9A0 /* View */,
+				3DB3A7B826B125020083A9A0 /* Views */,
 				3DB3A7BA26B139FB0083A9A0 /* Manager */,
 				35EB6DEB26AEE12E00AC7BE4 /* Util */,
 				3DB3A7B626B1249F0083A9A0 /* Supporting File */,
@@ -95,7 +95,7 @@
 				35EB6DEC26AEE14500AC7BE4 /* OSLog.swift */,
 				35EB6DED26AEE14500AC7BE4 /* PreViews.swift */,
 				35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */,
-				3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */,
+				3543152026B41CBC00E5E430 /* CommonConst.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -120,14 +120,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		3DB3A7B826B125020083A9A0 /* View */ = {
+		3DB3A7B826B125020083A9A0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3DB3A7B026B0F8860083A9A0 /* TabBarController.swift */,
 				35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */,
 				35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */,
+				3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3DB3A7BA26B139FB0083A9A0 /* Manager */ = {
@@ -270,13 +270,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3543152126B41CBC00E5E430 /* CommonConst.swift in Sources */,
 				3DB3A7C026B39D1B0083A9A0 /* CustomTabBarController.swift in Sources */,
 				3DB3A7BC26B13A170083A9A0 /* AppleLoginManager.swift in Sources */,
 				35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */,
 				35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */,
 				35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */,
 				35EB6E1C26B19B2000AC7BE4 /* Extensions.swift in Sources */,
-				3DB3A7B126B0F8860083A9A0 /* TabBarController.swift in Sources */,
 				35EB6E1A26B183B200AC7BE4 /* ProfileViewController.swift in Sources */,
 				35EB6DEE26AEE14500AC7BE4 /* OSLog.swift in Sources */,
 				35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */,
