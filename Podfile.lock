@@ -126,6 +126,7 @@ PODS:
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - SnapKit (5.0.1)
+  - Toast-Swift (5.0.1)
   - WeakMapTable (1.2.0)
 
 DEPENDENCIES:
@@ -140,6 +141,7 @@ DEPENDENCIES:
   - RxCocoa (= 6.2.0)
   - RxSwift (= 6.2.0)
   - SnapKit (~> 5.0.0)
+  - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
@@ -168,6 +170,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
+    - Toast-Swift
     - WeakMapTable
 
 SPEC CHECKSUMS:
@@ -196,8 +199,9 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 550f1055b31d090da24464fa124ba37c9f23ac08
+PODFILE CHECKSUM: c1d1d6ef042a10799ae9ab2bbfed37867a0b7b93
 
 COCOAPODS: 1.10.0

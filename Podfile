@@ -17,4 +17,5 @@ target 'GoodRestaurantStorage' do
   pod 'GoogleSignIn'
   pod 'IQKeyboardManagerSwift'
   pod 'JGProgressHUD'
+  pod 'Toast-Swift', '~> 5.0.1'
 end

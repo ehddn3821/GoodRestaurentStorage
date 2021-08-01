@@ -5,7 +5,6 @@
 //  Created by 앱지 Appg on 2021/07/28.
 //
 
-import Foundation
 import AuthenticationServices
 import CryptoKit
 import FirebaseAuth

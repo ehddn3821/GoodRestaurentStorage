@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupUI()
         buttonActions()
     }
     
@@ -89,8 +89,8 @@ class ProfileViewController: UIViewController {
     }
     
     
-    //MARK: - setup
-    private func setup() {
+    //MARK: - Setup UI
+    private func setupUI() {
         
         view.backgroundColor = .white
         

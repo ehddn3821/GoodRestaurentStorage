@@ -5,7 +5,6 @@
 //  Created by dwKang on 2021/07/31.
 //
 
-import Foundation
 import FirebaseAuth
 import JGProgressHUD
 import GoogleSignIn

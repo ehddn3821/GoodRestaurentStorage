@@ -20,13 +20,23 @@ class CustomTabBarController: UITabBarController {
         return vc
     }()
     
+    var addPostTabBar: AddPostViewController = {
+        var vc = AddPostViewController()
+        let defaultImg = UIImage(systemName: "plus.app")
+        let selectedImg = UIImage(systemName: "plus.app.fill")
+        let tabBarItem = UITabBarItem(title: nil, image: defaultImg, selectedImage: selectedImg)
+        vc.tabBarItem = tabBarItem
+        tabBarItem.tag = 1
+        return vc
+    }()
+    
     var profileTabBar: UINavigationController = {
         var vc = ProfileViewController()
         let defaultImg = UIImage(systemName: "person.circle")
         let selectedImg = UIImage(systemName: "person.circle.fill")
         let tabBarItem = UITabBarItem(title: nil, image: defaultImg, selectedImage: selectedImg)
         vc.tabBarItem = tabBarItem
-        tabBarItem.tag = 1
+        tabBarItem.tag = 2
         let nc = UINavigationController(rootViewController: vc)
         return nc
     }()
@@ -35,13 +45,14 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         
         setupTabBarShadow(tabBar)
-        self.tabBar.tintColor = .black
+        tabBar.tintColor = .black
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-        self.viewControllers = [self.mainTabBar, self.profileTabBar]
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        viewControllers = [mainTabBar, addPostTabBar, profileTabBar]
+        selectedIndex = 1
     }
 }
