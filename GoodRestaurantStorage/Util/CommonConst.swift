@@ -11,3 +11,8 @@ import UIKit
 func tabBarHeight(_ view: UIView, tabBarController: UITabBarController) -> Int {
     return Int(view.frame.height - tabBarController.tabBar.frame.minY)
 }
+
+struct Constants {
+    
+    static var firebaseDynamicLink = ""
+}

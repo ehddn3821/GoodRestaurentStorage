@@ -14,6 +14,7 @@ target 'GoodRestaurantStorage' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'Firebase/DynamicLinks'
   pod 'GoogleSignIn'
   pod 'IQKeyboardManagerSwift'
   pod 'JGProgressHUD'

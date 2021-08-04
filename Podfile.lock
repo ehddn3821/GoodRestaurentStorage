@@ -17,6 +17,9 @@ PODS:
   - Firebase/Database (8.4.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (~> 8.4.0)
+  - Firebase/DynamicLinks (8.4.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 8.4.0)
   - Firebase/Storage (8.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.4.0)
@@ -55,6 +58,8 @@ PODS:
   - FirebaseDatabase (8.4.0):
     - FirebaseCore (~> 8.0)
     - leveldb-library (~> 1.22)
+  - FirebaseDynamicLinks (8.4.0):
+    - FirebaseCore (~> 8.0)
   - FirebaseInstallations (8.4.0):
     - FirebaseCore (~> 8.0)
     - GoogleUtilities/Environment (~> 7.4)
@@ -133,6 +138,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
+  - Firebase/DynamicLinks
   - Firebase/Storage
   - GoogleSignIn
   - IQKeyboardManagerSwift
@@ -152,6 +158,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseDatabase
+    - FirebaseDynamicLinks
     - FirebaseInstallations
     - FirebaseStorage
     - GoogleAppMeasurement
@@ -181,6 +188,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 31f389c37ac1ea52454a53d3081f2d7019485a4a
   FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
   FirebaseDatabase: 38f21731dea277e454060d0d39c1bf2aaa12bbb9
+  FirebaseDynamicLinks: 22c017ca02b0e35e5c48b88d493d37409282e941
   FirebaseInstallations: 1585729afc787877763208c2088ed84221161f77
   FirebaseStorage: e6065bcbf70e2a06a8c3ddc66cbe03a395bbddc4
   GoogleAppMeasurement: 6b6a08fd9c71f4dbc89e0e812acca81d797aa342
@@ -202,6 +210,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: c1d1d6ef042a10799ae9ab2bbfed37867a0b7b93
+PODFILE CHECKSUM: 57a8fd97e8f8f9a01618b4f39249d73413cac97e
 
 COCOAPODS: 1.10.0
