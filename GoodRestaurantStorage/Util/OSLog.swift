@@ -14,14 +14,20 @@ extension OSLog {
 
     static var subsystem = Bundle.main.bundleIdentifier!
 
-    static let info = OSLog(subsystem: subsystem, category: ":::🟢")
+    static let info = OSLog(subsystem: subsystem, category: ":::🔵")
+    static let debug = OSLog(subsystem: subsystem, category: ":::🟢")
+    static let warning = OSLog(subsystem: subsystem, category: ":::🟠")
     static let error = OSLog(subsystem: subsystem, category: ":::🔴")
 }
 
+
 struct Log {
+    
     enum Level {
         case info
         case error
+        case debug
+        case warning
 
         fileprivate var category: String {
             switch self {
@@ -29,6 +35,10 @@ struct Log {
                 return ":::🟢"
             case .error:
                 return ":::🔴"
+            case .debug:
+                return ":::🔵"
+            case .warning:
+                return ":::🟠"
             }
         }
 
@@ -38,6 +48,10 @@ struct Log {
                 return OSLog.info
             case .error:
                 return OSLog.error
+            case .debug:
+                return OSLog.debug
+            case .warning:
+                return OSLog.warning
             }
         }
 
@@ -47,6 +61,10 @@ struct Log {
                 return .info
             case .error:
                 return .error
+            case .debug:
+                return .debug
+            case .warning:
+                return .default
             }
         }
     }
@@ -62,6 +80,10 @@ struct Log {
                 logger.info("\(logMessage, privacy: .public)")
             case .error:
                 logger.error("\(logMessage, privacy: .public)")
+            case .debug:
+                logger.debug("\(logMessage, privacy: .public)")
+            case .warning:
+                logger.warning("\(logMessage, privacy: .public)")
             }
         } else {
             let extraMessage: String = arguments.map({ String(describing: ": \($0)") }).joined(separator: " ")
@@ -71,15 +93,23 @@ struct Log {
     }
 }
 
-// MARK: - utils
 
+// MARK: - utils
 extension Log {
-    
+
     static func info(_ message: Any, _ arguments: Any..., filename: String = #file, line: Int = #line) {
         log("\(filename.components(separatedBy: "/").last ?? "")(\(line)) - \(message)", arguments, level: .info)
     }
-    
+
     static func error(_ message: Any, _ arguments: Any..., filename: String = #file, line: Int = #line) {
         log("\(filename.components(separatedBy: "/").last ?? "")(\(line)) - \(message)", arguments, level: .error)
+    }
+    
+    static func debug(_ message: Any, _ arguments: Any..., filename: String = #file, line: Int = #line) {
+        log("\(filename.components(separatedBy: "/").last ?? "")(\(line)) - \(message)", arguments, level: .debug)
+    }
+    
+    static func warning(_ message: Any, _ arguments: Any..., filename: String = #file, line: Int = #line) {
+        log("\(filename.components(separatedBy: "/").last ?? "")(\(line)) - \(message)", arguments, level: .warning)
     }
 }

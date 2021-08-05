@@ -11,6 +11,7 @@
 		353EA57326B5542300EC2DF2 /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353EA57226B5542300EC2DF2 /* GoogleSignInManager.swift */; };
 		3543152126B41CBC00E5E430 /* CommonConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3543152026B41CBC00E5E430 /* CommonConst.swift */; };
 		3576520F26B67B82007FE321 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576520E26B67B82007FE321 /* AddPostViewController.swift */; };
+		358A177C26BBBB8000B8009C /* AddPostViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358A177B26BBBB8000B8009C /* AddPostViewController+UI.swift */; };
 		35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */; };
 		35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */; };
 		35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */; };
@@ -29,6 +30,7 @@
 		353EA57226B5542300EC2DF2 /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
 		3543152026B41CBC00E5E430 /* CommonConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConst.swift; sourceTree = "<group>"; };
 		3576520E26B67B82007FE321 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
+		358A177B26BBBB8000B8009C /* AddPostViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPostViewController+UI.swift"; sourceTree = "<group>"; };
 		35EB6DD426AEDEED00AC7BE4 /* GoodRestaurantStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodRestaurantStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35EB6DD726AEDEED00AC7BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35EB6DD926AEDEED00AC7BE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		358A177A26BBBB5D00B8009C /* ViewController+UI */ = {
+			isa = PBXGroup;
+			children = (
+				358A177B26BBBB8000B8009C /* AddPostViewController+UI.swift */,
+			);
+			path = "ViewController+UI";
+			sourceTree = "<group>";
+		};
 		35EB6DCB26AEDEED00AC7BE4 = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +95,8 @@
 			children = (
 				3DB3A7B926B128B10083A9A0 /* GoodRestaurantStorage.entitlements */,
 				3DB3A7B726B124DA0083A9A0 /* App */,
-				3DB3A7B826B125020083A9A0 /* Views */,
+				3DB3A7B826B125020083A9A0 /* ViewControllers */,
+				358A177A26BBBB5D00B8009C /* ViewController+UI */,
 				3DB3A7BA26B139FB0083A9A0 /* Manager */,
 				35EB6DEB26AEE12E00AC7BE4 /* Util */,
 				3DB3A7B626B1249F0083A9A0 /* Supporting File */,
@@ -124,7 +135,7 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		3DB3A7B826B125020083A9A0 /* Views */ = {
+		3DB3A7B826B125020083A9A0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				35EB6DDB26AEDEED00AC7BE4 /* MainViewController.swift */,
@@ -132,7 +143,7 @@
 				3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */,
 				3576520E26B67B82007FE321 /* AddPostViewController.swift */,
 			);
-			path = Views;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		3DB3A7BA26B139FB0083A9A0 /* Manager */ = {
@@ -280,6 +291,7 @@
 				3DB3A7C026B39D1B0083A9A0 /* CustomTabBarController.swift in Sources */,
 				353EA57326B5542300EC2DF2 /* GoogleSignInManager.swift in Sources */,
 				3DB3A7BC26B13A170083A9A0 /* AppleSignInManager.swift in Sources */,
+				358A177C26BBBB8000B8009C /* AddPostViewController+UI.swift in Sources */,
 				3576520F26B67B82007FE321 /* AddPostViewController.swift in Sources */,
 				35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */,
 				35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */,

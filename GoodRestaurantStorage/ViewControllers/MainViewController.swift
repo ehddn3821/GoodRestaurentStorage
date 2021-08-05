@@ -9,26 +9,36 @@ import UIKit
 import SnapKit
 import FirebaseDynamicLinks
 import FirebaseStorage
+import FirebaseDatabase
 
 class MainViewController: UIViewController {
     
+    let ref = Database.database().reference()
     let storage = Storage.storage()
     
-    lazy var testLabel: UILabel = {
+    var testLabel: UILabel = {
         let lb = UILabel()
         lb.text = "성공"
         lb.isHidden = true
         return lb
     }()
     
-    private let foodImageView: UIImageView = {
-        let iv = UIImageView()
-        return iv
-    }()
+    var foodImageView = UIImageView()
+    var placeName = UILabel()
+    var menuName = UILabel()
+    var review = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        createDynamicLink()
+//        NotificationCenter.default.addObserver(self, selector: #selector(dlAction), name: Notification.Name(rawValue: "clickFirebaseDynamicLink"), object: nil)
+        setupUI()
+        getDatabase()
+    }
+    
+    
+    func setupUI() {
         view.backgroundColor = .white
         
         view.addSubview(testLabel)
@@ -36,29 +46,43 @@ class MainViewController: UIViewController {
             $0.center.equalToSuperview()
         }
         
+        view.addSubview(placeName)
+        placeName.snp.makeConstraints {
+            $0.top.equalTo(100)
+            $0.leading.equalTo(20)
+        }
+        
+        view.addSubview(menuName)
+        menuName.snp.makeConstraints {
+            $0.top.equalTo(placeName.snp.bottom).offset(20)
+            $0.leading.equalTo(placeName)
+        }
+        
         let screenWidth = UIScreen.main.bounds.width
         
         view.addSubview(foodImageView)
         foodImageView.snp.makeConstraints {
-            $0.top.equalTo(100)
-            $0.leading.equalTo(20)
+            $0.top.equalTo(menuName.snp.bottom).offset(20)
+            $0.leading.equalTo(placeName)
             $0.trailing.equalTo(-20)
             $0.height.equalTo(screenWidth - 40)
         }
-        
-        downloadImage(imageView: foodImageView)
-        createDynamicLink()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(dlAction), name: Notification.Name(rawValue: "clickFirebaseDynamicLink"), object: nil)
     }
     
-    
-    func downloadImage(imageView: UIImageView) {
-        
-        storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/test").downloadURL { (url, error) in
-            let data = NSData(contentsOf: url!)
-            let image = UIImage(data: data! as Data)
-            self.foodImageView.image = image
+    func getDatabase() {
+        ref.observeSingleEvent(of: .value) { snapshot in
+            let dic = snapshot.value as! [String: [String: Any]]
+            for index in dic {
+                self.placeName.text = (index.value["place_name"] as! String)
+                self.menuName.text = (index.value["menu_name"] as! String)
+                
+                // 이미지
+                self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
+                    let data = NSData(contentsOf: url!)
+                    let image = UIImage(data: data! as Data)
+                    self.foodImageView.image = image
+                }
+            }
         }
     }
     
@@ -82,7 +106,9 @@ class MainViewController: UIViewController {
                 Log.error(error.localizedDescription)
                 return
             }
-            Log.info(shortURL)
+            Log.info(shortURL!)
         }
+        
+        Log.info("url", referralLink?.url ?? "")
     }
 }
