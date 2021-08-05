@@ -73,17 +73,19 @@ class MainViewController: UIViewController {
         ref.observeSingleEvent(of: .value) { snapshot in
             let dic = snapshot.value as! [String: [String: Any]]
             for index in dic {
-                self.placeName.text = (index.value["place_name"] as! String)
-                self.menuName.text = (index.value["menu_name"] as! String)
-                
-                // 이미지
-                self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
-                    if let error = error {
-                        Log.error(error.localizedDescription)
-                    } else {
-                        let data = NSData(contentsOf: url!)
-                        let image = UIImage(data: data! as Data)
-                        self.foodImageView.image = image
+                if index.key.contains("-") {
+                    self.placeName.text = (index.value["place_name"] as! String)
+                    self.menuName.text = (index.value["menu_name"] as! String)
+                    
+                    // 이미지
+                    self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
+                        if let error = error {
+                            Log.error(error.localizedDescription)
+                        } else {
+                            let data = NSData(contentsOf: url!)
+                            let image = UIImage(data: data! as Data)
+                            self.foodImageView.image = image
+                        }
                     }
                 }
             }
