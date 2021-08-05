@@ -8,12 +8,14 @@
 import UIKit
 import SnapKit
 import FirebaseAuth
+import FirebaseDatabase
 import RxSwift
 import RxCocoa
 
 class ProfileViewController: UIViewController {
     
     var disposeBag = DisposeBag()
+    let ref = Database.database().reference()
     
     //MARK: - UI Property
     private let snsSignInLabel: UILabel = {
@@ -73,6 +75,7 @@ class ProfileViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
         if UserDefaults.standard.bool(forKey: "user") {
+            nicknameSetCheck()
             signOutBtn.isHidden = false
             snsSignInLabel.isHidden = true
             snsSignInStackView.isHidden = true
@@ -80,6 +83,20 @@ class ProfileViewController: UIViewController {
             signOutBtn.isHidden = true
             snsSignInLabel.isHidden = false
             snsSignInStackView.isHidden = false
+        }
+    }
+    
+    func nicknameSetCheck() {
+        guard let currentUser = Auth.auth().currentUser?.email!.replacingOccurrences(of: ".", with: "_") else { return }
+        ref.observeSingleEvent(of: .value) { snapshot in
+            let dic = snapshot.value as! [String: [String: Any]]
+            for index in dic {
+                if index.key == "user" {
+                    if !index.value.keys.contains(currentUser) {
+                        self.navigationController?.pushViewController(NickNameViewController(), animated: true)
+                    }
+                }
+            }
         }
     }
     

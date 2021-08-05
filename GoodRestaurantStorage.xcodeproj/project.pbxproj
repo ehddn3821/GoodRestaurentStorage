@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3018A4B9157374A45F82BA67 /* Pods_GoodRestaurantStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E970D889E754FB89DB4F6B /* Pods_GoodRestaurantStorage.framework */; };
+		350E78E726BC1AFD004B2649 /* NickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350E78E626BC1AFD004B2649 /* NickNameViewController.swift */; };
 		353EA57326B5542300EC2DF2 /* GoogleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353EA57226B5542300EC2DF2 /* GoogleSignInManager.swift */; };
 		3543152126B41CBC00E5E430 /* CommonConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3543152026B41CBC00E5E430 /* CommonConst.swift */; };
 		3576520F26B67B82007FE321 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576520E26B67B82007FE321 /* AddPostViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350E78E626BC1AFD004B2649 /* NickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewController.swift; sourceTree = "<group>"; };
 		353EA57226B5542300EC2DF2 /* GoogleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInManager.swift; sourceTree = "<group>"; };
 		3543152026B41CBC00E5E430 /* CommonConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConst.swift; sourceTree = "<group>"; };
 		3576520E26B67B82007FE321 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */,
 				3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */,
 				3576520E26B67B82007FE321 /* AddPostViewController.swift */,
+				350E78E626BC1AFD004B2649 /* NickNameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				35EB6DDC26AEDEED00AC7BE4 /* MainViewController.swift in Sources */,
 				35EB6DD826AEDEED00AC7BE4 /* AppDelegate.swift in Sources */,
 				35EB6E1C26B19B2000AC7BE4 /* Extensions.swift in Sources */,
+				350E78E726BC1AFD004B2649 /* NickNameViewController.swift in Sources */,
 				35EB6E1A26B183B200AC7BE4 /* ProfileViewController.swift in Sources */,
 				35EB6DEE26AEE14500AC7BE4 /* OSLog.swift in Sources */,
 				35EB6DDA26AEDEED00AC7BE4 /* SceneDelegate.swift in Sources */,
@@ -448,6 +452,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dwkang.GoodRestaurantStorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -470,6 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dwkang.GoodRestaurantStorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

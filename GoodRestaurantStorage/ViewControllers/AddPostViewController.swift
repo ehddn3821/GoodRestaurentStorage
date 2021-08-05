@@ -70,7 +70,7 @@ class AddPostViewController: UIViewController {
                 let currentDate = Date()
                 let dateString = self.dateFormatter.string(from: currentDate)
                 
-                let postRef = self.ref.child(dateString)
+                let postRef = self.ref.child("post").child(dateString)
                 let currentUser = Auth.auth().currentUser?.email!.replacingOccurrences(of: ".", with: "_")
                 let placeName = self.placeTextField.text
                 let menuName = self.menuTextField.text
@@ -83,6 +83,7 @@ class AddPostViewController: UIViewController {
                 } else if self.foodPhotoImgView.image == nil {
                     self.view.makeToast("사진을 추가해주세요 !", duration: 1.5, position: .center)
                 } else {
+                    
                     let value: [String: Any] = ["user": currentUser!, "place_name": placeName!, "menu_name": menuName!, "review": review!]
                     postRef.setValue(value)
                     

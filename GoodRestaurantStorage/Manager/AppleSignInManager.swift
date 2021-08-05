@@ -15,6 +15,8 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ASAuthori
     
     static let shared = AppleSignInManager.init()
     
+    let topVC = UIApplication.shared.windows.first?.visibleViewController as! ProfileViewController
+    
     fileprivate var currentNonce: String?
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
@@ -80,11 +82,11 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ASAuthori
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         
-        let topVC = UIApplication.shared.windows.first?.visibleViewController
+        
         let hud = JGProgressHUD()
         hud.textLabel.text = "Loading"
         hud.tintColor = .black
-        hud.show(in: (topVC?.view)!, animated: true)
+        hud.show(in: (topVC.view)!, animated: true)
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             guard let nonce = currentNonce else {
@@ -116,7 +118,7 @@ class AppleSignInManager: NSObject, ASAuthorizationControllerDelegate, ASAuthori
                 Log.info("애플 로그인 성공")
                 UserDefaults.standard.set(true, forKey: "user")
                 hud.dismiss()
-                topVC?.viewWillAppear(true)
+                self.topVC.viewWillAppear(true)
             }
         }
     }
