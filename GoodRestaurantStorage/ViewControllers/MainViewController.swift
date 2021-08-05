@@ -78,9 +78,13 @@ class MainViewController: UIViewController {
                 
                 // 이미지
                 self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
-                    let data = NSData(contentsOf: url!)
-                    let image = UIImage(data: data! as Data)
-                    self.foodImageView.image = image
+                    if let error = error {
+                        Log.error(error.localizedDescription)
+                    } else {
+                        let data = NSData(contentsOf: url!)
+                        let image = UIImage(data: data! as Data)
+                        self.foodImageView.image = image
+                    }
                 }
             }
         }

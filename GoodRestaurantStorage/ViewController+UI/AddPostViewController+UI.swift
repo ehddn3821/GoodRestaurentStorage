@@ -106,6 +106,7 @@ extension AddPostViewController {
         view.addSubview(addPhotoBtn)
         let addPhotoBtnImgConfig = UIImage.SymbolConfiguration(pointSize: 50, weight: .regular, scale: .large)
         addPhotoBtn.setImage(UIImage(systemName: "plus.app", withConfiguration: addPhotoBtnImgConfig), for: .normal)
+        addPhotoBtn.tintColor = .orange
         addPhotoBtn.snp.makeConstraints {
             $0.top.equalTo(photoLB.snp.bottom).offset(20)
             $0.leading.equalTo(placeTextField)

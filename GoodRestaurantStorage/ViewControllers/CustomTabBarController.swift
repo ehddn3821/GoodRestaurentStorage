@@ -54,7 +54,7 @@ class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         navigationController?.setNavigationBarHidden(true, animated: animated)
         viewControllers = [mainTabBar, addPostTabBar, profileTabBar]
-        selectedIndex = 2
+        selectedIndex = 0
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
