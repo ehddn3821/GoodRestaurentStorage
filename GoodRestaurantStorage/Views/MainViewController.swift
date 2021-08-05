@@ -8,14 +8,22 @@
 import UIKit
 import SnapKit
 import FirebaseDynamicLinks
+import FirebaseStorage
 
 class MainViewController: UIViewController {
+    
+    let storage = Storage.storage()
     
     lazy var testLabel: UILabel = {
         let lb = UILabel()
         lb.text = "성공"
         lb.isHidden = true
         return lb
+    }()
+    
+    private let foodImageView: UIImageView = {
+        let iv = UIImageView()
+        return iv
     }()
     
     override func viewDidLoad() {
@@ -28,9 +36,30 @@ class MainViewController: UIViewController {
             $0.center.equalToSuperview()
         }
         
+        let screenWidth = UIScreen.main.bounds.width
+        
+        view.addSubview(foodImageView)
+        foodImageView.snp.makeConstraints {
+            $0.top.equalTo(100)
+            $0.leading.equalTo(20)
+            $0.trailing.equalTo(-20)
+            $0.height.equalTo(screenWidth - 40)
+        }
+        
+        downloadImage(imageView: foodImageView)
         createDynamicLink()
         
         NotificationCenter.default.addObserver(self, selector: #selector(dlAction), name: Notification.Name(rawValue: "clickFirebaseDynamicLink"), object: nil)
+    }
+    
+    
+    func downloadImage(imageView: UIImageView) {
+        
+        storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/test").downloadURL { (url, error) in
+            let data = NSData(contentsOf: url!)
+            let image = UIImage(data: data! as Data)
+            self.foodImageView.image = image
+        }
     }
     
     @objc func dlAction() {
