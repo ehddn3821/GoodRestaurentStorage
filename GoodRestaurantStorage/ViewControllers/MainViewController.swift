@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     let ref = Database.database().reference()
     let storage = Storage.storage()
+    var postCount = 0
     
     var testLabel: UILabel = {
         let lb = UILabel()
@@ -22,6 +23,8 @@ class MainViewController: UIViewController {
         lb.isHidden = true
         return lb
     }()
+    
+    let postTableView = UITableView()
     
     var foodImageView = UIImageView()
     var placeName = UILabel()
@@ -35,6 +38,8 @@ class MainViewController: UIViewController {
 //        NotificationCenter.default.addObserver(self, selector: #selector(dlAction), name: Notification.Name(rawValue: "clickFirebaseDynamicLink"), object: nil)
         setupUI()
         getDatabase()
+        
+//        postTableView.delegate = self
     }
     
     
@@ -72,20 +77,20 @@ class MainViewController: UIViewController {
     func getDatabase() {
         ref.observeSingleEvent(of: .value) { snapshot in
             let dic = snapshot.value as! [String: [String: Any]]
-            for index in dic {
-                if index.key.contains("-") {
-                    self.placeName.text = (index.value["place_name"] as! String)
-                    self.menuName.text = (index.value["menu_name"] as! String)
-                    
-                    // 이미지
-                    self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
-                        if let error = error {
-                            Log.error(error.localizedDescription)
-                        } else {
-                            let data = NSData(contentsOf: url!)
-                            let image = UIImage(data: data! as Data)
-                            self.foodImageView.image = image
-                        }
+            let postDic = dic["post"] as! [String: [String: Any]]
+            
+            for index in postDic {
+                self.placeName.text = (index.value["place_name"] as! String)
+                self.menuName.text = (index.value["menu_name"] as! String)
+                
+                // 이미지
+                self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
+                    if let error = error {
+                        Log.error(error.localizedDescription)
+                    } else {
+                        let data = NSData(contentsOf: url!)
+                        let image = UIImage(data: data! as Data)
+                        self.foodImageView.image = image
                     }
                 }
             }
@@ -118,3 +123,16 @@ class MainViewController: UIViewController {
         Log.info("url", referralLink?.url ?? "")
     }
 }
+
+
+//MARK: - UITableView
+//extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//}
