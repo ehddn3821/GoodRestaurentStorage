@@ -101,9 +101,9 @@ class MainViewController: UIViewController {
         let referralLink = DynamicLinkComponents(link: link!, domainURIPrefix: "https://goodrestaurantstorage.page.link")
         
         // iOS 설정
-        referralLink?.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.dwkang.GoodRestaurantStorage")
+        referralLink?.iOSParameters = DynamicLinkIOSParameters(bundleID: "com.appg.standard.bankdiary-client")
         referralLink?.iOSParameters?.minimumAppVersion = "1.0"
-        referralLink?.iOSParameters?.appStoreID = "1579672517"
+        referralLink?.iOSParameters?.appStoreID = "1543640471"
 //        referralLink?.iOSParameters?.customScheme = "커스텀 스키마가 설정되어 있을 경우 추가"
         
         // 단축 URL 생성

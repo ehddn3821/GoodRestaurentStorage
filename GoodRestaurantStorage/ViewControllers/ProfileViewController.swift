@@ -51,6 +51,8 @@ class ProfileViewController: UIViewController {
         return btn
     }()
     
+    let nickNameLabel = UILabel()
+    
     private let signOutBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Sign Out !", for: .normal)
@@ -76,11 +78,14 @@ class ProfileViewController: UIViewController {
         
         if UserDefaults.standard.bool(forKey: "user") {
             nicknameSetCheck()
+            bindNickname()
             signOutBtn.isHidden = false
+            nickNameLabel.isHidden = false
             snsSignInLabel.isHidden = true
             snsSignInStackView.isHidden = true
         } else {
             signOutBtn.isHidden = true
+            nickNameLabel.isHidden = true
             snsSignInLabel.isHidden = false
             snsSignInStackView.isHidden = false
         }
@@ -134,6 +139,14 @@ class ProfileViewController: UIViewController {
             $0.centerX.equalToSuperview()
         }
         
+        view.addSubview(nickNameLabel)
+        nickNameLabel.font = .boldSystemFont(ofSize: 20)
+        nickNameLabel.snp.makeConstraints {
+            $0.top.equalTo(100)
+            $0.leading.equalTo(20)
+            $0.trailing.equalTo(-20)
+        }
+        
         // Sign out button
         view.addSubview(signOutBtn)
         signOutBtn.snp.makeConstraints {
@@ -143,6 +156,21 @@ class ProfileViewController: UIViewController {
             $0.height.equalTo(35)
         }
     }
+    
+    func bindNickname() {
+        
+        guard let currentUser = Auth.auth().currentUser?.email!.replacingOccurrences(of: ".", with: "_") else { return }
+        
+        ref.observeSingleEvent(of: .value) { snapshot in
+            
+            let dic = snapshot.value as! [String: [String: Any]]
+            let userDic = dic["user"] as! [String: [String: Any]]
+            
+            guard let nickname = userDic[currentUser] else { return }
+            self.nickNameLabel.text = "\(nickname["nick_name"]!) 님 환영합니다 !"
+        }
+    }
+    
     
     //MARK: - Button Actions
     private func buttonActions() {
@@ -168,6 +196,7 @@ class ProfileViewController: UIViewController {
                     try! Auth.auth().signOut()
                     UserDefaults.standard.set(false, forKey: "user")
                     Log.info("로그아웃")
+                    self.nickNameLabel.text = ""
                     self.viewWillAppear(true)
                 }
                 
