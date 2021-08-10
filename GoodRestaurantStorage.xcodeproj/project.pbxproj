@@ -22,6 +22,7 @@
 		35EB6DEF26AEE14500AC7BE4 /* PreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6DED26AEE14500AC7BE4 /* PreViews.swift */; };
 		35EB6E1A26B183B200AC7BE4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */; };
 		35EB6E1C26B19B2000AC7BE4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */; };
+		3D0994FC26C0CF3F00D518C9 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0994FB26C0CF3F00D518C9 /* PostTableViewCell.swift */; };
 		3DB3A7B526B124860083A9A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */; };
 		3DB3A7BC26B13A170083A9A0 /* AppleSignInManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7BB26B13A170083A9A0 /* AppleSignInManager.swift */; };
 		3DB3A7C026B39D1B0083A9A0 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */; };
@@ -45,6 +46,7 @@
 		35EB6DF426B1599F00AC7BE4 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		35EB6E1926B183B200AC7BE4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		35EB6E1B26B19B2000AC7BE4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3D0994FB26C0CF3F00D518C9 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		3DB3A7B426B124860083A9A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DB3A7B926B128B10083A9A0 /* GoodRestaurantStorage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoodRestaurantStorage.entitlements; sourceTree = "<group>"; };
 		3DB3A7BB26B13A170083A9A0 /* AppleSignInManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInManager.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				3DB3A7BF26B39D1B0083A9A0 /* CustomTabBarController.swift */,
 				3576520E26B67B82007FE321 /* AddPostViewController.swift */,
 				350E78E626BC1AFD004B2649 /* NickNameViewController.swift */,
+				3D0994FB26C0CF3F00D518C9 /* PostTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			files = (
 				3543152126B41CBC00E5E430 /* CommonConst.swift in Sources */,
 				3DB3A7C026B39D1B0083A9A0 /* CustomTabBarController.swift in Sources */,
+				3D0994FC26C0CF3F00D518C9 /* PostTableViewCell.swift in Sources */,
 				353EA57326B5542300EC2DF2 /* GoogleSignInManager.swift in Sources */,
 				3DB3A7BC26B13A170083A9A0 /* AppleSignInManager.swift in Sources */,
 				358A177C26BBBB8000B8009C /* AddPostViewController+UI.swift in Sources */,

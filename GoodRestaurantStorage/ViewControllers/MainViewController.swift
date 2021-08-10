@@ -10,12 +10,22 @@ import SnapKit
 import FirebaseDynamicLinks
 import FirebaseStorage
 import FirebaseDatabase
+import RxCocoa
+import RxSwift
+import JGProgressHUD
 
 class MainViewController: UIViewController {
     
     let ref = Database.database().reference()
     let storage = Storage.storage()
-    var postCount = 0
+    let bag = DisposeBag()
+    let refreshControl = UIRefreshControl()
+    
+    var placeName: [String] = []
+    var menuName: [String] = []
+    var review: [String] = []
+    var foodImageUrl: [URL] = []
+    
     
     var testLabel: UILabel = {
         let lb = UILabel()
@@ -26,20 +36,35 @@ class MainViewController: UIViewController {
     
     let postTableView = UITableView()
     
-    var foodImageView = UIImageView()
-    var placeName = UILabel()
-    var menuName = UILabel()
-    var review = UILabel()
+    lazy var hud: JGProgressHUD = {
+        let loader = JGProgressHUD(style: .dark)
+        loader.textLabel.text = "Loading"
+        return loader
+    }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        createDynamicLink()
 //        NotificationCenter.default.addObserver(self, selector: #selector(dlAction), name: Notification.Name(rawValue: "clickFirebaseDynamicLink"), object: nil)
+        
+        postTableView.delegate = self
+        postTableView.dataSource = self
+        postTableView.register(PostTableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        refreshControl.endRefreshing()
+        postTableView.refreshControl = refreshControl
+        
         setupUI()
         getDatabase()
+        setupReload()
         
-//        postTableView.delegate = self
+        hud.show(in: view, animated: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.postTableView.reloadData()
+            self.hud.dismiss(animated: true)
+        }
     }
     
     
@@ -51,49 +76,10 @@ class MainViewController: UIViewController {
             $0.center.equalToSuperview()
         }
         
-        view.addSubview(placeName)
-        placeName.snp.makeConstraints {
-            $0.top.equalTo(100)
-            $0.leading.equalTo(20)
-        }
-        
-        view.addSubview(menuName)
-        menuName.snp.makeConstraints {
-            $0.top.equalTo(placeName.snp.bottom).offset(20)
-            $0.leading.equalTo(placeName)
-        }
-        
-        let screenWidth = UIScreen.main.bounds.width
-        
-        view.addSubview(foodImageView)
-        foodImageView.snp.makeConstraints {
-            $0.top.equalTo(menuName.snp.bottom).offset(20)
-            $0.leading.equalTo(placeName)
-            $0.trailing.equalTo(-20)
-            $0.height.equalTo(screenWidth - 40)
-        }
-    }
-    
-    func getDatabase() {
-        ref.observeSingleEvent(of: .value) { snapshot in
-            let dic = snapshot.value as! [String: [String: Any]]
-            let postDic = dic["post"] as! [String: [String: Any]]
-            
-            for index in postDic {
-                self.placeName.text = (index.value["place_name"] as! String)
-                self.menuName.text = (index.value["menu_name"] as! String)
-                
-                // 이미지
-                self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
-                    if let error = error {
-                        Log.error(error.localizedDescription)
-                    } else {
-                        let data = NSData(contentsOf: url!)
-                        let image = UIImage(data: data! as Data)
-                        self.foodImageView.image = image
-                    }
-                }
-            }
+        view.addSubview(postTableView)
+        postTableView.allowsSelection = false
+        postTableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     
@@ -122,17 +108,68 @@ class MainViewController: UIViewController {
         
         Log.info("url", referralLink?.url ?? "")
     }
+    
+    func getDatabase() {
+        ref.observeSingleEvent(of: .value) { snapshot in
+            let dic = snapshot.value as! [String: [String: Any]]
+            let postDic = dic["post"] as! [String: [String: Any]]
+            
+            for index in postDic {
+                self.placeName.append(index.value["place_name"] as! String)
+                self.menuName.append(index.value["menu_name"] as! String)
+                self.review.append(index.value["review"] as! String)
+                
+                // 이미지
+                self.storage.reference(forURL: "gs://goodrestaurantstorage.appspot.com/\(index.key)").downloadURL { (url, error) in
+                    if let error = error {
+                        Log.error(error.localizedDescription)
+                    } else {
+                        self.foodImageUrl.append(url!)
+                    }
+                }
+            }
+        }
+    }
+    
+    func setupReload() {
+        refreshControl.rx.controlEvent(.valueChanged)
+            .bind(onNext: { _ in
+                
+                self.placeName.removeAll()
+                self.menuName.removeAll()
+                self.review.removeAll()
+                self.foodImageUrl.removeAll()
+                
+                self.getDatabase()
+                
+                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) { [weak self] in
+                    self!.refreshControl.endRefreshing()
+                    self!.postTableView.reloadData()
+                }
+            }).disposed(by: bag)
+    }
 }
 
 
 //MARK: - UITableView
-//extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//}
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return placeName.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! PostTableViewCell
+        cell.placeNameLabel.text = placeName[indexPath.row]
+        cell.menuNameLabel.text = menuName[indexPath.row]
+        cell.reviewLabel.text = review[indexPath.row]
+        let data = NSData(contentsOf: foodImageUrl[indexPath.row])
+        let image = UIImage(data: data! as Data)
+        cell.foodImageView.image = image
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.screenWidth + 120
+    }
+}

@@ -15,4 +15,6 @@ func tabBarHeight(_ view: UIView, tabBarController: UITabBarController) -> Int {
 struct Constants {
     
     static var firebaseDynamicLink = ""
+    
+    static let screenWidth = UIScreen.main.bounds.width
 }
